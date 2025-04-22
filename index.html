@@ -1,11 +1,773 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>테스트 홈페이지</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KJ특허사무소 - 서울대학석 도쿄대박사 도쿄대교수 대기업 연구임원출신 한국인 일본변리사가 일본에서 운영하는 특허사무소</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 글꼴 및 기본 스타일 */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        
+        :root {
+            --primary: #121212;
+            --secondary: #00b8d4;
+            --light: #f8f9fa;
+            --dark: #121212;
+            --gray: #6c757d;
+            --light-gray: #333333;
+            --dark-text: #ffffff;
+            --accent: #00b8d4;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* 헤더 스타일 */
+        header {
+            background-color: rgba(18, 18, 18, 0.95);
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        /* 모바일 메뉴 스타일 */
+        .mobile-menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(18, 18, 18, 0.95);
+            width: 100%;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            padding: 10px 0;
+            z-index: 999;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-150%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.active {
+            transform: translateY(0);
+        }
+        
+        .mobile-menu-item {
+            width: 100%;
+            text-align: center;
+            padding: 12px 0;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s;
+        }
+        
+        .mobile-menu-item:last-child {
+            border-bottom: none;
+        }
+        
+        .mobile-menu-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--accent);
+        }
+        
+        /* 햄버거 메뉴 */
+        .menu-toggle {
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* 페이지 스타일 */
+        .page {
+            min-height: 100vh;
+            padding-top: 70px;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .page.active {
+            display: block;
+            opacity: 1;
+        }
+        
+        /* 히어로 섹션 */
+        .hero {
+            background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.7)), url('/api/placeholder/1200/600') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        /* 소개 섹션 */
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: var(--accent);
+        }
+        
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .about-text {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        
+        .about-image {
+            width: 100%;
+            text-align: center;
+        }
+        
+        .profile-img {
+            width: 80%;
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* 서비스 섹션 */
+        .services {
+            background-color: #1a1a1a;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        .service-card {
+            background-color: #212121;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-icon {
+            font-size: 2.2rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .service-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--light);
+            text-align: center;
+        }
+        
+        /* 장점 섹션 */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        .advantage-card {
+            background-color: #212121;
+            color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .advantage-icon {
+            font-size: 2.2rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .advantage-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        /* 비용 섹션 */
+        .pricing {
+            background-color: #1a1a1a;
+        }
+        
+        .pricing-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .pricing-text {
+            text-align: center;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-note {
+            background-color: #212121;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 500;
+            width: 100%;
+        }
+        
+        /* 연락처 섹션 */
+        .contact {
+            background-color: #1a1a1a;
+        }
+        
+        .contact-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .contact-info {
+            background-color: #212121;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-right: 15px;
+            width: 30px;
+        }
+        
+        /* 푸터 */
+        footer {
+            background-color: #0a0a0a;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            margin-bottom: 20px;
+        }
+        
+        .footer-links ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            list-style: none;
+        }
+        
+        .footer-links ul li a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links ul li a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* 언어 선택 */
+        .language-selector {
+            margin-left: 20px;
+            position: relative;
+        }
+        
+        .language-btn {
+            background: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .language-btn i {
+            margin-left: 5px;
+        }
+        
+        /* 반응형 스타일 */
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .advantages-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .about-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+            
+            .about-text {
+                width: 50%;
+                padding-right: 20px;
+            }
+            
+            .about-image {
+                width: 50%;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .advantages-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>홈페이지 작동 확인! 여보 사랑해</h1>
-    <h1>여보 사랑해</h1>
+    <!-- 헤더 섹션 -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo" id="home-link">KJ<span>특허사무소</span></a>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="language-selector">
+                <button class="language-btn">KOR <i class="fas fa-chevron-down"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 모바일 메뉴 -->
+    <div class="mobile-menu">
+        <a href="#" class="mobile-menu-item" data-page="home">홈</a>
+        <a href="#" class="mobile-menu-item" data-page="about">변리사 소개</a>
+        <a href="#" class="mobile-menu-item" data-page="services">업무영역</a>
+        <a href="#" class="mobile-menu-item" data-page="advantages">일본출원 장점</a>
+        <a href="#" class="mobile-menu-item" data-page="pricing">서비스 비용</a>
+        <a href="#" class="mobile-menu-item" data-page="contact">연락처</a>
+    </div>
+
+    <!-- 홈 페이지 -->
+    <div class="page active" id="home">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>KJ특허사무소 - 한국인 일본변리사</h1>
+                    <p>전문적인 일본 특허·상표·의장 출원 서비스를 제공합니다</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 변리사 소개 페이지 - 업데이트된 내용 -->
+    <div class="page" id="about">
+        <section>
+            <div class="container">
+                <h2 class="section-title">변리사 소개</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>서울대 학석 도쿄대 박사 도쿄대 교수 일본 대기업 연구임원 출인 한국인 일본변리사</h3>
+                        <p>안녕하세요, KJ특허사무소 대표 변리사 이두환입니다. 박사 학위와 도쿄대학교 교수 경험 및 대기업 연구임원 경력을 바탕으로 깊이 있는 전문성을 갖추고 있습니다.</p>
+                        <p>한국과 일본의 문화적, 언어적 이해를 토대로 양국 간의 지식재산권 보호에 특화된 서비스를 제공합니다.</p>
+                        <p>특히 일본 특허, 상표, 의장 출원 분야에서 고객의 권리를 최대한 보호하고 일본 시장 진출을 성공적으로 지원합니다.</p>
+                        
+                        <h4>경력</h4>
+                        <ul>
+                            <li>2023.04 – 현재: NTT 상석특별연구원 (연구임원)</li>
+                            <li>2014.04 – 2023.03: NTT</li>
+                            <li>2012.03 – 2014.03: 도쿄대학교 첨단과학기술연구센터 전임강사 (조교수급)</li>
+                            <li>2009.04 – 2012.03: NTT</li>
+                        </ul>
+                        
+                        <h4>학력</h4>
+                        <ul>
+                            <li>2020.04 – 2021.03: 키나자와공업대학교 지식재산매니지먼트석사 (MIPM)</li>
+                            <li>2006.04 – 2009.03: 도쿄대학교 신영역창성과학연구과 박사 (문부과학성 국비유학)</li>
+                            <li>2004.03 – 2006.02: 서울대학교 전기전자컴퓨터공학부 석사</li>
+                            <li>1997.03 – 2004.02: 서울대학교 전기공학부 학사 (우등졸업)</li>
+                        </ul>
+                        
+                        <h4>수상 내역 (외부 수상)</h4>
+                        <ul>
+                            <li>제70회 마에지마 히소카상 (第70回前島密賞, 비공식 70년간 한국인 최초), 2025</li>
+                            <li>ARIB 통신 시스템 기술상, 2025</li>
+                            <li>제35회 전파공적상 총무대신 표창 (第35回電波功績賞総務大臣表彰, 역대 유명 수상자: 소프트뱅크 손정의 회장), 2024</li>
+                            <li>IEICE ComEX 최우수 레터상, 2023</li>
+                            <li>IEICE 통신학회 공로상, 2021</li>
+                            <li>IEICE 스마트 라디오 기술위원회 최우수 논문상, 2017</li>
+                            <li>IEICE 스마트 라디오 기술위원회 기술 전시상, 2017</li>
+                            <li>IEICE SmartCom2016 최우수 논문상, 2016</li>
+                            <li>IEICE 단거리 무선 통신 시스템 기술위원회 신진 연구자상, 2016</li>
+                            <li>IEICE SmartCom2014 최우수 기술 전시상, 2014</li>
+                            <li>IEICE 통신학회 최우수 논문상, 2012</li>
+                            <li>IEICE 소프트웨어 라디오 기술위원회 최우수 논문상, 2011</li>
+                            <li>IEICE 소프트웨어 라디오 기술위원회 기술 전시상, 2011</li>
+                        </ul>
+                        
+                        <h4>수상 내역 (내부 수상)</h4>
+                        <ul>
+                            <li>NTT 네트워크 이노베이션 연구소 연구 업적상, 2023</li>
+                            <li>NTT 네트워크 이노베이션 연구소 연구 장려상, 2022</li>
+                            <li>NTT 과학 및 코어 기술 연구소 연구 개발상, 2018</li>
+                            <li>NTT 네트워크 이노베이션 연구소 연구 업적상, 2017</li>
+                            <li>NTT 과학 및 코어 기술 연구소 연구 개발상, 2016</li>
+                            <li>NTT 네트워크 이노베이션 연구소 연구 업적상, 2016</li>
+                            <li>NTT 네트워크 이노베이션 연구소 연구 업적상, 2012</li>
+                            <li>NTT 네트워크 이노베이션 연구소 연구 장려상, 2011</li>
+                        </ul>
+                        
+                        <h4>위원회 및 워크숍 활동</h4>
+                        <ul>
+                            <li>2025 - IEEE 통신학회 위성 및 우주 통신 기술위원회 AI 기반 지상 및 비지상 네트워크 통합 특별 그룹, 창립 멤버</li>
+                            <li>2025 - IEEE PIMRC 2025 통합, 지능형 및 유비쿼터스 (IIU) 6G 연결 워크숍, 워크숍 공동 위원장</li>
+                            <li>2025 - IEEE ICC 2025 전자기 신호 및 정보 이론 워크숍, 워크숍 공동 위원장</li>
+                            <li>2025 - IEICE SmartCom 2025, 포스터 및 전시 공동 위원장</li>
+                            <li>2025 - IEEE WCNC 2025 6G를 위한 재구성 가능한 지능형 및 홀로그래픽 표면 워크숍, 워크숍 공동 위원장</li>
+                            <li>2024-25 - IEICE Trans. on Commun., SmartCom 2024와 연계된 스마트 라디오 기술 특별호, 객원 편집자</li>
+                            <li>2024-25 - IEICE Trans. on Commun., 최우수 논문 선정 위원회 위원</li>
+                            <li>2024 - IEEE GLOBECOM 2024 5G-Advanced 및 6G를 위한 재구성 가능한 지능형 표면 글로벌 표준화 산업 패널 – Part II, 패널리스트</li>
+                            <li>2024 - IEEE 통신학회 신기술 이니셔티브(ETI) 전자기 신호 및 정보 이론 (ESIT), 산업 공동 위원장</li>
+                            <li>2024 - IEEE Network 6G 네트워크를 위한 다기능 재구성 가능한 지능형 및 홀로그래픽 표면 특별호, 객원 편집자</li>
+                            <li>2024 - IEICE SmartCom 2024, 특별 세션 공동 위원장</li>
+                            <li>2024 - IEEE PIMRC 2024 6G를 위한 통합, 지능형 및 유비쿼터스 연결 워크숍, 워크숍 공동 위원장</li>
+                            <li>2024 - IEEE ICC 2024 궤도 각운동량 전송 워크숍, 워크숍 공동 위원장</li>
+                            <li>2024 - IEEE ICC 2024 전자기 신호 및 정보 이론 워크숍, 워크숍 공동 위원장</li>
+                            <li>2024 - IEEE WCNC 2024 6G를 위한 재구성 가능한 지능형 및 홀로그래픽 표면 워크숍, 워크숍 공동 위원장</li>
+                            <li>2023-24 - IEEE IoT Magazine NTN 지원 사물인터넷 기술 발전 특별호, 객원 편집자</li>
+                            <li>2023 - IEEE GLOBECOM 2023 전자기 신호 및 정보 이론 워크숍, 워크숍 공동 위원장</li>
+                            <li>2023 - IEEE GLOBECOM 2023 고용량 무선 통신 워크숍, 워크숍 공동 위원장</li>
+                            <li>2023 - IEEE VTC2023-Fall 안테나 시스템, 전파 및 RF 설계 트랙, 공동 위원장</li>
+                            <li>2023 - IEEE PIMRC 2023 전자기 정보 이론 워크숍, 워크숍 공동 위원장</li>
+                            <li>2023 - IEEE PIMRC 2023 6G 비전 재구성 가능한 지능형 및 홀로그래픽 표면 워크숍, 워크숍 공동 위원장</li>
+                            <li>2023 - IEEE VTC2023-Spring 전자기 정보 이론 워크숍, 워크숍 공동 위원장</li>
+                            <li>2023 - IEEE ICC 2023 궤도 각운동량 전송 워크숍, 워크숍 공동 위원장</li>
+                            <li>2022-26 - IEICE Trans. on Commun., 편집자</li>
+                            <li>2022-23 - IEEE ComSoC 회원 서비스 위원회(MSB), 지역 10 대표 (비투표 회원)</li>
+                            <li>2022-23 - IEEE ComSoC APB 회원 개발 위원회(MDC), 공동 위원장</li>
+                            <li>2022 - IEEE GLOBECOM 2022 고용량 무선 통신 워크숍, 워크숍 공동 위원장</li>
+                            <li>2022 - IEEE PIMRC 2022 전자기 정보 이론 워크숍, 워크숍 공동 위원장</li>
+                            <li>2022 - IEEE ICC 2022 궤도 각운동량 전송 워크숍, 워크숍 공동 위원장</li>
+                            <li>2021 - IEEE ICC 2021 궤도 각운동량 전송 워크숍, 워크숍 공동 위원장</li>
+                            <li>2020-25 - IEICE 스마트 라디오 기술 위원회, 행정 간사</li>
+                            <li>2020 - IEEE GLOBECOM 2020 고용량 무선 통신 워크숍, 워크숍 공동 위원장</li>
+                            <li>2020 - IEEE ICC 2020 궤도 각운동량 전송 워크숍, 워크숍 공동 위원장</li>
+                            <li>2020-21 - IEEE ComSoC APB 회의 및 컨퍼런스 위원회(MCC), 부위원장</li>
+                            <li>2020-21 - IEICE Trans. on Commun., 미래 무선 시스템을 위한 동적 스펙트럼 공유 특별호, 편집 위원</li>
+                            <li>2019 - IEEE GLOBECOM 2019 고용량 무선 점대점 통신 워크숍, 워크숍 공동 위원장</li>
+                            <li>2019 - IEEE ICC 2019 궤도 각운동량을 이용한 전자기파 전송 워크숍, 총괄 공동 위원장</li>
+                            <li>2016-20 - IEICE 스마트 라디오 기술 위원회, 전문 위원</li>
+                            <li>2016 - SmartCom2016 국제 스마트 무선 통신 워크숍, 홍보 공동 위원장</li>
+                            <li>2012 - 제2회 일본 국내 압축 센싱 워크숍, 공동 조직자</li>
+                            <li>2011 - 제1회 일본 국내 압축 센싱 워크숍, 공동 조직자</li>
+                            <li>2009- - IEEE GLOBECOM, IEEE ICC, IEEE APCC, IEEE VTC, IEEE PIMRC, IEICE 종합 학술대회, IEICE 학회 대회, IEICE 기술 위원회 등에서 세션 좌장</li>
+                        </ul>
+                    </div>
+                    <div class="about-image">
+                        <img src="/api/placeholder/300/300" alt="변리사 프로필" class="profile-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <!-- 업무영역 페이지 -->
+    <div class="page" id="services">
+        <section class="services">
+            <div class="container">
+                <h2 class="section-title">업무영역</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="service-title">특허 출원</h3>
+                        <p>발명의 권리 보호를 위한 일본 특허 출원 및 등록 서비스를 제공합니다. 기술 분야별 전문 지식을 활용한 최적의 권리 확보 전략을 제시합니다.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-trademark"></i>
+                        </div>
+                        <h3 class="service-title">상표 출원</h3>
+                        <p>브랜드 가치를 보호하기 위한 일본 상표 출원 및 등록 서비스를 제공합니다. 일본 시장에 맞는 상표 전략 및 침해 대응 방안을 수립합니다.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-drafting-compass"></i>
+                        </div>
+                        <h3 class="service-title">의장 출원</h3>
+                        <p>제품 디자인의 독창성을 보호하기 위한 일본 의장 출원 및 등록 서비스를 제공합니다. 심미적 가치가 있는 디자인의 권리화를 지원합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 일본출원 장점 페이지 -->
+    <div class="page" id="advantages">
+        <section>
+            <div class="container">
+                <h2 class="section-title">한국인 일본변리사를 통한 일본 출원의 장점</h2>
+                <div class="advantages-grid">
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <h3 class="advantage-title">언어적 장벽 해소</h3>
+                        <p>한국어와 일본어에 모두 능통하여 의사소통이 원활합니다. 복잡한 기술 내용과 법률 용어를 정확하게 이해하고 전달합니다.</p>
+                    </div>
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="advantage-title">양국 제도 이해</h3>
+                        <p>한국과 일본의 지식재산권 제도를 모두 이해하고 있어, 양국 간의 차이점을 고려한 최적의 전략을 제시합니다.</p>
+                    </div>
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <h3 class="advantage-title">연구 경험 활용</h3>
+                        <p>박사 학위와 연구원 경력을 바탕으로 기술적 이해도가 높아 발명의 본질을 정확히 파악하고 권리화합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 서비스 비용 페이지 -->
+    <div class="page" id="pricing">
+        <section class="pricing">
+            <div class="container">
+                <h2 class="section-title">서비스 비용</h2>
+                <div class="pricing-content">
+                    <div class="pricing-text">
+                        <p>KJ특허사무소는 고객의 요구사항과 출원 내용에 따라 맞춤형 서비스를 제공하고 있습니다. 정확한 비용 산정을 위해서는 상담이 필요합니다.</p>
+                        <p>다양한 기술 분야와 출원 유형에 따라 비용이 달라질 수 있으며, 고객의 상황에 가장 적합한 서비스를 제안해 드립니다.</p>
+                    </div>
+                    <div class="pricing-note">
+                        <p>서비스 비용은 상담 후 결정됩니다.</p>
+                        <p>이메일: leedh@kjpat.net으로 문의해 주시기 바랍니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 연락처 페이지 -->
+    <div class="page" id="contact">
+        <section class="contact">
+            <div class="container">
+                <h2 class="section-title">연락처</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>KJ특허사무소</h3>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p>leedh@kjpat.net</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div>
+                                <p>www.kjpat.net</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    KJ특허사무소
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#" class="footer-link" data-page="home">홈</a></li>
+                        <li><a href="#" class="footer-link" data-page="about">변리사 소개</a></li>
+                        <li><a href="#" class="footer-link" data-page="services">업무영역</a></li>
+                        <li><a href="#" class="footer-link" data-page="pricing">서비스 비용</a></li>
+                        <li><a href="#" class="footer-link" data-page="contact">연락처</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 KJ특허사무소. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 메뉴 토글 기능
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.mobile-menu').classList.toggle('active');
+        });
+        
+        // 로고 클릭 시 홈 페이지로 이동
+        document.getElementById('home-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            showPage('home');
+            document.querySelector('.mobile-menu').classList.remove('active');
+        });
+        
+        // 페이지 전환 기능
+        function showPage(pageId) {
+            // 모든 페이지 숨기기
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // 선택한 페이지만 보이기
+            document.getElementById(pageId).classList.add('active');
+            
+            // 페이지 맨 위로 스크롤
+            window.scrollTo(0, 0);
+        }
+        
+        // 모바일 메뉴 항목 클릭 이벤트
+        document.querySelectorAll('.mobile-menu-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const pageId = this.getAttribute('data-page');
+                showPage(pageId);
+                document.querySelector('.mobile-menu').classList.remove('active');
+            });
+        });
+        
+        // 푸터 링크 클릭 이벤트
+        document.querySelectorAll('.footer-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const pageId = this.getAttribute('data-page');
+                showPage(pageId);
+            });
+        });
+        
+        // 스크롤 시 헤더 스타일 변경
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.backgroundColor = 'rgba(18, 18, 18, 0.95)';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
+            } else {
+                header.style.backgroundColor = 'var(--primary)';
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
