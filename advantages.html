@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -353,26 +353,31 @@
 .comparison-table {
     width: 100%;
     border-collapse: collapse;
-    box-shadow: var(--shadow-md);
-    background-color: var(--light);
+    background-color: #1e1e1e; /* 항상 어두운 배경 */
+    color: #f0f0f0; /* 밝은 텍스트 */
 }
 
 .comparison-table th,
 .comparison-table td {
     padding: var(--spacing-md);
     text-align: left;
-    border: 1px solid var(--light-gray);
+    border: 1px solid #444; /* 테두리도 어둡게 */
 }
 
 .comparison-table th {
-    background-color: var(--primary);
-    color: var(--light);
+    background-color: #333; /* 헤더 진한 회색 */
+    color: #ffffff;
     font-weight: 600;
 }
 
 .comparison-table tr:nth-child(even) {
-    background-color: rgba(233, 236, 239, 0.5);
+    background-color: #2a2a2a; /* 짝수 줄 배경 */
 }
+
+.comparison-table tr:nth-child(odd) {
+    background-color: #1e1e1e; /* 홀수 줄 배경 */
+}
+
 
 /* 반응형 스타일 */
 @media (min-width: 768px) {
