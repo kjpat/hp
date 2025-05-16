@@ -1,0 +1,633 @@
+/* 
+ * KJ특허사무소 웹사이트 컴포넌트 스타일시트
+ * 버튼, 카드, 폼 등 재사용 가능한 컴포넌트
+ */
+
+/* ===== 버튼 스타일 ===== */
+.btn {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: 4px;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-primary {
+  background-color: var(--secondary);
+  color: var(--light);
+  border: 2px solid var(--secondary);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent);
+  color: var(--primary);
+  border-color: var(--accent);
+}
+
+/* 한국어 페이지 버튼 스타일 - 럭셔리 스타일 */
+html[lang="ko"] .btn-primary {
+  background-color: var(--ko-secondary);
+  border-color: var(--ko-secondary);
+  border-radius: 4px; /* 럭셔리한 느낌의 각진 모서리 */
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 12px 30px;
+  color: var(--ko-light) !important; /* 흰색 텍스트 색상으로 대비 향상, !important로 우선순위 높임 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+html[lang="ko"] .btn-primary:hover {
+  background-color: var(--ko-accent); /* 호버 시 샴페인 골드 색상 */
+  transform: translateY(-2px); /* 약간 위로 이동하는 효과 */
+  color: var(--ko-dark) !important; /* !important로 우선순위 높임 */
+  border-color: var(--ko-accent);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--light);
+  border: 2px solid var(--light);
+}
+
+.btn-outline:hover {
+  background-color: var(--accent);
+  color: var(--primary);
+  border-color: var(--accent);
+}
+
+/* 한국어 페이지 아웃라인 버튼 - 럭셔리 스타일 */
+html[lang="ko"] .btn-outline {
+  border-radius: 4px; /* 럭셔리한 느낌의 각진 모서리 */
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 12px 30px;
+  border: 2px solid var(--ko-secondary);
+  color: var(--ko-secondary) !important; /* !important로 우선순위 높임 */
+  background-color: transparent;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+html[lang="ko"] .btn-outline:hover {
+  background-color: rgba(212, 175, 55, 0.1); /* 골드 색상의 반투명 배경 */
+  color: var(--ko-secondary) !important; /* !important로 우선순위 높임 */
+  border-color: var(--ko-secondary);
+  transform: translateY(-2px); /* 약간 위로 이동하는 효과 */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== 카드 스타일 ===== */
+/* 서비스 카드 */
+.service-card {
+  background-color: var(--light);
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-lg);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* 한국어 페이지 서비스 카드 - 스포티파이 스타일 */
+html[lang="ko"] .service-card {
+  background-color: var(--ko-light-gray);
+  box-shadow: none;
+  border-radius: 6px;
+  padding: 20px;
+  transition: background-color var(--transition-fast);
+}
+
+html[lang="ko"] .service-card:hover {
+  background-color: #3E3E3E; /* 스포티파이 호버 배경색 */
+  box-shadow: none;
+  transform: none; /* 스포티파이는 카드에 상승 효과 대신 배경색 변경 사용 */
+}
+
+.service-icon {
+  font-size: var(--font-3xl);
+  color: var(--secondary);
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+}
+
+/* 한국어 페이지 서비스 아이콘 - 스포티파이 스타일 */
+html[lang="ko"] .service-icon {
+  color: var(--ko-secondary);
+  font-size: 2.5rem;
+}
+
+.service-title {
+  font-size: var(--font-lg);
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+}
+
+/* 장점 카드 */
+.advantage-card {
+  background-color: var(--light);
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-lg);
+  transition: transform var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.advantage-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: var(--secondary);
+}
+
+.advantage-card:hover {
+  transform: translateY(-5px);
+}
+
+/* 한국어 페이지 장점 카드 */
+html[lang="ko"] .advantage-card {
+  background-color: var(--ko-light-gray);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+html[lang="ko"] .advantage-card::before {
+  background-color: var(--ko-accent);
+}
+
+html[lang="ko"] .advantage-card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.advantage-icon {
+  font-size: var(--font-2xl);
+  color: var(--secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+/* 한국어 페이지 장점 아이콘 */
+html[lang="ko"] .advantage-icon {
+  color: var(--ko-accent);
+}
+
+.advantage-title {
+  font-size: var(--font-lg);
+  margin-bottom: var(--spacing-md);
+}
+
+/* 프로필 카드 */
+.profile-info-card {
+  background-color: var(--light);
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: transform var(--transition-normal);
+}
+
+.profile-info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* 한국어 페이지 프로필 카드 */
+html[lang="ko"] .profile-info-card {
+  background-color: var(--ko-light-gray);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+html[lang="ko"] .profile-info-card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-header {
+  background-color: var(--primary);
+  color: var(--light);
+  padding: var(--spacing-md);
+  display: flex;
+  align-items: center;
+}
+
+/* 한국어 페이지 카드 헤더 */
+html[lang="ko"] .card-header {
+  background-color: var(--ko-primary);
+}
+
+.card-header i {
+  font-size: var(--font-xl);
+  margin-right: var(--spacing-sm);
+  color: var(--light);
+}
+
+.card-header h3 {
+  margin: 0;
+  color: var(--light);
+}
+
+.card-body {
+  padding: var(--spacing-md);
+}
+
+/* ===== 연락처 컴포넌트 ===== */
+.contact-info {
+  background-color: var(--light);
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-lg);
+  width: 100%;
+  max-width: 500px;
+}
+
+/* 한국어 페이지 연락처 정보 */
+html[lang="ko"] .contact-info {
+  background-color: var(--ko-light-gray);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contact-info h3 {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.contact-icon {
+  font-size: var(--font-lg);
+  color: var(--secondary);
+  margin-right: var(--spacing-md);
+  width: 24px;
+  text-align: center;
+}
+
+/* 한국어 페이지 연락처 아이콘 */
+html[lang="ko"] .contact-icon {
+  color: var(--ko-accent);
+}
+
+/* 푸터 연락처 아이콘 */
+.footer-contact .contact-icon {
+  color: var(--accent);
+}
+
+/* 한국어 페이지 푸터 연락처 아이콘 */
+html[lang="ko"] .footer-contact .contact-icon {
+  color: var(--ko-accent);
+}
+
+.footer-contact p {
+  color: var(--light-gray);
+  margin-bottom: 0;
+}
+
+/* 한국어 페이지 푸터 연락처 텍스트 */
+html[lang="ko"] .footer-contact p {
+  color: var(--ko-gray);
+}
+
+/* ===== 비용 섹션 컴포넌트 ===== */
+.pricing-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pricing-text {
+  margin-bottom: var(--spacing-lg);
+}
+
+.pricing-note {
+  background-color: var(--light-gray);
+  border-radius: 8px;
+  padding: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+  font-weight: 500;
+}
+
+/* 한국어 페이지 비용 노트 */
+html[lang="ko"] .pricing-note {
+  background-color: var(--ko-light-gray);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--ko-light);
+}
+
+/* ===== 수상 내역 컴포넌트 ===== */
+.awards-section {
+  background-color: var(--light);
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+/* 한국어 페이지 수상 내역 섹션 */
+html[lang="ko"] .awards-section {
+  background-color: var(--ko-light-gray);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.awards-header {
+  background-color: var(--primary);
+  color: var(--light);
+  padding: var(--spacing-md);
+  display: flex;
+  align-items: center;
+}
+
+/* 한국어 페이지 수상 내역 헤더 */
+html[lang="ko"] .awards-header {
+  background-color: var(--ko-primary);
+}
+
+.awards-header i {
+  font-size: var(--font-xl);
+  margin-right: var(--spacing-sm);
+  color: var(--light);
+}
+
+.awards-header h3 {
+  margin: 0;
+  color: var(--light);
+}
+
+.awards-content {
+  padding: var(--spacing-md);
+}
+
+.award-item {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--light-gray);
+}
+
+/* 한국어 페이지 수상 내역 아이템 경계선 */
+html[lang="ko"] .award-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.award-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.award-title.highlight, .highlight-text {
+  background-color: rgba(255, 193, 7, 0.1);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 4px;
+  border-left: 3px solid var(--accent);
+  display: inline-block;
+  margin-left: -3px;
+  padding-left: var(--spacing-sm);
+}
+
+/* 한국어 페이지 하이라이트 텍스트 */
+html[lang="ko"] .award-title.highlight, 
+html[lang="ko"] .highlight-text {
+  background-color: rgba(255, 179, 0, 0.1);
+  border-left: 3px solid var(--ko-accent);
+}
+
+.highlight-text {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* 한국어 페이지 하이라이트 텍스트 색상 */
+html[lang="ko"] .highlight-text {
+  color: var(--ko-light);
+}
+
+.award-year {
+  font-weight: 600;
+  color: var(--secondary);
+  margin-right: var(--spacing-md);
+  min-width: 60px;
+}
+
+/* 한국어 페이지 수상 연도 */
+html[lang="ko"] .award-year {
+  color: var(--ko-secondary);
+}
+
+.award-title {
+  flex: 1;
+  font-weight: 500;
+}
+
+.award-desc {
+  width: 100%;
+  margin-top: var(--spacing-xs);
+  color: var(--gray);
+  font-size: var(--font-sm);
+  padding-left: calc(60px + var(--spacing-md));
+}
+
+/* 한국어 페이지 수상 설명 */
+html[lang="ko"] .award-desc {
+  color: var(--ko-gray);
+}
+
+/* ===== 위원회 및 워크숍 컴포넌트 ===== */
+.committees-container {
+  background-color: var(--light);
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-lg);
+}
+
+/* 한국어 페이지 위원회 컨테이너 */
+html[lang="ko"] .committees-container {
+  background-color: var(--ko-light-gray);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.committees-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-lg);
+  justify-content: center;
+}
+
+.filter-btn {
+  background-color: var(--light);
+  border: 1px solid var(--light-gray);
+  border-radius: 4px;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+/* 한국어 페이지 필터 버튼 */
+html[lang="ko"] .filter-btn {
+  background-color: var(--ko-dark);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--ko-light);
+}
+
+.filter-btn.active, .filter-btn:hover {
+  background-color: var(--secondary);
+  color: var(--light);
+  border-color: var(--secondary);
+}
+
+/* 한국어 페이지 필터 버튼 활성화/호버 */
+html[lang="ko"] .filter-btn.active, 
+html[lang="ko"] .filter-btn:hover {
+  background-color: var(--ko-secondary);
+  border-color: var(--ko-secondary);
+}
+
+.committees-list {
+  margin-top: var(--spacing-lg);
+}
+
+.committee-item {
+  display: flex;
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--light-gray);
+}
+
+/* 한국어 페이지 위원회 아이템 경계선 */
+html[lang="ko"] .committee-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.committee-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.committee-year {
+  font-weight: 600;
+  color: var(--secondary);
+  margin-right: var(--spacing-md);
+  min-width: 80px;
+}
+
+/* 한국어 페이지 위원회 연도 */
+html[lang="ko"] .committee-year {
+  color: var(--ko-secondary);
+}
+
+.committee-content {
+  flex: 1;
+  line-height: 1.5;
+}
+
+/* ===== 프로필 인트로 컴포넌트 ===== */
+.profile-intro-section {
+  padding: var(--spacing-xl) 0;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+/* 한국어 페이지 프로필 인트로 섹션 경계선 */
+html[lang="ko"] .profile-intro-section {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.profile-intro-content {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.profile-intro-box {
+  margin-bottom: var(--spacing-lg);
+}
+
+.profile-intro-name {
+  color: var(--primary);
+  font-size: var(--font-3xl);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* 한국어 페이지 프로필 이름 */
+html[lang="ko"] .profile-intro-name {
+  color: var(--ko-light);
+}
+
+.profile-intro-subtitle {
+  color: var(--secondary);
+  font-size: var(--font-lg);
+  font-weight: 500;
+  margin-bottom: var(--spacing-md);
+  line-height: 1.5;
+}
+
+/* 한국어 페이지 프로필 부제목 */
+html[lang="ko"] .profile-intro-subtitle {
+  color: var(--ko-secondary);
+}
+
+.profile-intro-text {
+  font-size: var(--font-lg);
+  line-height: 1.8;
+  color: var(--dark-gray);
+}
+
+/* 한국어 페이지 프로필 텍스트 */
+html[lang="ko"] .profile-intro-text {
+  color: var(--ko-gray);
+}
+
+/* ===== 정보 아이템 컴포넌트 ===== */
+.info-item {
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--light-gray);
+}
+
+/* 한국어 페이지 정보 아이템 경계선 */
+html[lang="ko"] .info-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.info-year {
+  font-weight: 600;
+  color: var(--secondary);
+  margin-bottom: var(--spacing-xs);
+}
+
+/* 한국어 페이지 정보 연도 */
+html[lang="ko"] .info-year {
+  color: var(--ko-secondary);
+}
+
+.info-content {
+  line-height: 1.5;
+}
+
+/* 단어 단위 줄바꿈 방지 */
+.nowrap-word {
+  display: inline-block;
+  white-space: nowrap;
+}

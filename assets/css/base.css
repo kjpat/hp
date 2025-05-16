@@ -1,0 +1,380 @@
+/* 
+ * KJ특허사무소 웹사이트 기본 스타일시트
+ * 변수, 타이포그래피, 유틸리티 클래스 등
+ */
+
+/* ===== 글꼴 임포트 ===== */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
+
+/* ===== 변수 ===== */
+:root {
+  /* 색상 팔레트 - 더 세련된 색상으로 업데이트 */
+  --primary: #1a2a4a;
+  --secondary: #0056b3;
+  --accent: #ffc107;
+  --light: #f8f9fa;
+  --dark: #121212;
+  --gray: #6c757d;
+  --light-gray: #e9ecef;
+  --dark-gray: #343a40;
+  
+  /* 그라디언트 */
+  --gradient-primary: linear-gradient(135deg, #1a2a4a 0%, #2c3e50 100%);
+  --gradient-secondary: linear-gradient(135deg, #0056b3 0%, #3a7bd5 100%);
+  
+  /* 한국어 다크 테마 색상 - 럭셔리 스타일 */
+  --ko-primary: #0F1E2D; /* 딥 네이비 블루 (메인 배경) */
+  --ko-secondary: #D4AF37; /* 골드 색상 */
+  --ko-accent: #C9A55C; /* 샴페인 골드 */
+  --ko-light: #FFFFFF; /* 흰색 텍스트 */
+  --ko-dark: #0F1E2D; /* 딥 네이비 블루 */
+  --ko-gray: #C0C0C0; /* 실버 그레이 */
+  --ko-light-gray: #1A2A3A; /* 약간 밝은 네이비 블루 */
+  --ko-dark-gray: #0A1520; /* 매우 어두운 네이비 블루 */
+  
+  /* 한국어 다크 테마 그라디언트 */
+  --ko-gradient-primary: linear-gradient(135deg, #0F1E2D 0%, #1A2A3A 100%);
+  --ko-gradient-secondary: linear-gradient(135deg, #D4AF37 0%, #C9A55C 100%);
+  
+  /* 그림자 */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+  
+  /* 트랜지션 */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* 간격 */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+  
+  /* 폰트 크기 */
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
+  --font-md: 1rem;
+  --font-lg: 1.25rem;
+  --font-xl: 1.5rem;
+  --font-2xl: 2rem;
+  --font-3xl: 2.5rem;
+  --font-4xl: 3rem;
+  
+  /* 컨테이너 */
+  --container-max-width: 1200px;
+  --container-padding: 1rem;
+  
+  /* 반응형 중단점 */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+}
+
+/* ===== 기본 스타일 ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Noto Sans KR', 'Noto Sans JP', 'Inter', sans-serif;
+  line-height: 1.6;
+  color: var(--dark);
+  background-color: var(--light);
+  overflow-x: hidden;
+}
+
+/* 언어별 폰트 설정 */
+html[lang="ko"] body {
+  font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+  color: var(--ko-light);
+  background-color: var(--ko-dark);
+}
+
+html[lang="ja"] body {
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic Pro', sans-serif;
+}
+
+html[lang="en"] body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+  color: var(--primary);
+}
+
+/* 언어별 제목 폰트 설정 */
+html[lang="ko"] h1, html[lang="ko"] h2, html[lang="ko"] h3, 
+html[lang="ko"] h4, html[lang="ko"] h5, html[lang="ko"] h6 {
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  color: var(--ko-light);
+}
+
+html[lang="ja"] h1, html[lang="ja"] h2, html[lang="ja"] h3, 
+html[lang="ja"] h4, html[lang="ja"] h5, html[lang="ja"] h6 {
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic Pro', sans-serif;
+}
+
+html[lang="en"] h1, html[lang="en"] h2, html[lang="en"] h3, 
+html[lang="en"] h4, html[lang="en"] h5, html[lang="en"] h6 {
+  font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
+}
+
+h1 {
+  font-size: var(--font-3xl);
+}
+
+h2 {
+  font-size: var(--font-2xl);
+}
+
+h3 {
+  font-size: var(--font-xl);
+}
+
+h4 {
+  font-size: var(--font-lg);
+}
+
+p {
+  margin-bottom: var(--spacing-md);
+}
+
+a {
+  color: var(--secondary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary);
+}
+
+/* 한국어 페이지 링크 스타일 */
+html[lang="ko"] a {
+  color: var(--ko-secondary);
+}
+
+html[lang="ko"] a:hover {
+  color: var(--ko-accent);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul, ol {
+  margin-bottom: var(--spacing-md);
+  padding-left: var(--spacing-lg);
+}
+
+/* ===== 유틸리티 클래스 ===== */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-secondary {
+  color: var(--secondary);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.bg-primary {
+  background-color: var(--primary);
+  color: var(--light);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+  color: var(--light);
+}
+
+.bg-light {
+  background-color: var(--light);
+  color: var(--dark);
+}
+
+.bg-dark {
+  background-color: var(--dark);
+  color: var(--light);
+}
+
+.bg-gradient {
+  background: var(--gradient-primary);
+  color: var(--light);
+}
+
+/* 한국어 페이지 배경 클래스 */
+html[lang="ko"] .bg-primary {
+  background-color: var(--ko-primary);
+  color: var(--ko-light);
+}
+
+html[lang="ko"] .bg-secondary {
+  background-color: var(--ko-secondary);
+  color: var(--ko-light);
+}
+
+html[lang="ko"] .bg-light {
+  background-color: var(--ko-light-gray);
+  color: var(--ko-light);
+}
+
+html[lang="ko"] .bg-dark {
+  background-color: var(--ko-dark);
+  color: var(--ko-light);
+}
+
+html[lang="ko"] .bg-gradient {
+  background: var(--ko-gradient-primary);
+  color: var(--ko-light);
+}
+
+.mt-1 { margin-top: var(--spacing-xs); }
+.mt-2 { margin-top: var(--spacing-sm); }
+.mt-3 { margin-top: var(--spacing-md); }
+.mt-4 { margin-top: var(--spacing-lg); }
+.mt-5 { margin-top: var(--spacing-xl); }
+
+.mb-1 { margin-bottom: var(--spacing-xs); }
+.mb-2 { margin-bottom: var(--spacing-sm); }
+.mb-3 { margin-bottom: var(--spacing-md); }
+.mb-4 { margin-bottom: var(--spacing-lg); }
+.mb-5 { margin-bottom: var(--spacing-xl); }
+
+.py-1 { padding-top: var(--spacing-xs); padding-bottom: var(--spacing-xs); }
+.py-2 { padding-top: var(--spacing-sm); padding-bottom: var(--spacing-sm); }
+.py-3 { padding-top: var(--spacing-md); padding-bottom: var(--spacing-md); }
+.py-4 { padding-top: var(--spacing-lg); padding-bottom: var(--spacing-lg); }
+.py-5 { padding-top: var(--spacing-xl); padding-bottom: var(--spacing-xl); }
+
+.px-1 { padding-left: var(--spacing-xs); padding-right: var(--spacing-xs); }
+.px-2 { padding-left: var(--spacing-sm); padding-right: var(--spacing-sm); }
+.px-3 { padding-left: var(--spacing-md); padding-right: var(--spacing-md); }
+.px-4 { padding-left: var(--spacing-lg); padding-right: var(--spacing-lg); }
+.px-5 { padding-left: var(--spacing-xl); padding-right: var(--spacing-xl); }
+
+/* 애니메이션 */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.2s;
+}
+
+.delay-2 {
+  animation-delay: 0.4s;
+}
+
+.delay-3 {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 반응형 스타일 */
+@media (min-width: 576px) {
+  .hero h1 {
+    font-size: var(--font-4xl);
+  }
+  
+  .hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+  }
+}
+
+@media (min-width: 768px) {
+  .nav-desktop {
+    display: block;
+  }
+  
+  .nav-mobile-toggle {
+    display: none;
+  }
+  
+  .about-content {
+    flex-direction: row;
+  }
+  
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .advantages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .profile-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .awards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .advantages-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .profile-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .awards-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
