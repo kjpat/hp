@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -353,6 +353,7 @@
 </section>
 
 <style>
+/* 특허 서비스 카드 다크 테마 스타일 */
 .patent-services-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -360,19 +361,22 @@
     margin-top: var(--spacing-lg);
 }
 
+/* 특허 서비스 카드 다크 테마 배경 */
 .patent-service-card {
-    background-color: var(--light);
+    background-color: #1E293B; /* 어두운 배경색 */
     border-radius: 12px;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
     overflow: hidden;
     transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    border: 1px solid #334155;
 }
 
 .patent-service-card:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
+/* 아이콘 배경색 어둡게 조정 */
 .service-card-icon {
     width: 80px;
     height: 80px;
@@ -381,12 +385,15 @@
     justify-content: center;
     align-items: center;
     margin: var(--spacing-lg) auto var(--spacing-md);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .service-card-icon i {
     font-size: 2.5rem;
+    color: var(--accent);
 }
 
+/* 카드 내부 텍스트 색상 밝게 조정 */
 .service-card-content {
     padding: 0 var(--spacing-lg) var(--spacing-lg);
     text-align: center;
@@ -395,61 +402,110 @@
 .service-card-content h3 {
     margin-bottom: var(--spacing-md);
     font-size: var(--font-xl);
+    color: #FFFFFF; /* 제목 색상 더 밝게 */
 }
 
 .service-card-content p {
-    color: var(--gray);
+    color: #E2E8F0; /* 내용 색상 더 밝게 */
     margin-bottom: var(--spacing-lg);
 }
 
-.service-benefits {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
-    margin-top: var(--spacing-lg);
+/* 버튼 스타일 변경 */
+.btn-toggle {
+    background-color: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 30px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
 }
 
+.btn-toggle:hover {
+    background-color: var(--accent);
+    color: #0F172A; /* 어두운 배경에 대비되는 색상 */
+}
+
+/* 상세 내용 영역 어둡게 */
+.service-card-details {
+    display: none;
+    background-color: #0F172A; /* 더 어두운 배경색 */
+    border-top: 1px solid #334155;
+}
+
+.service-details-content {
+    padding: var(--spacing-lg);
+}
+
+.service-details-section h4 {
+    color: #FFFFFF; /* 제목 색상 더 밝게 */
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-lg);
+    text-align: center;
+}
+
+.service-details-section ul li {
+    color: #E2E8F0; /* 목록 텍스트 색상 더 밝게 */
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-sm);
+}
+
+.service-details-section ul li i {
+    color: var(--accent);
+    margin-right: var(--spacing-sm);
+    margin-top: 4px;
+}
+
+/* 특정 카드 스타일 - 특허 출원 서비스 */
+.bg-light .patent-service-card {
+    background-color: #1E293B;
+}
+
+/* 특정 카드 스타일 - 상표 및 의장 */
+.patent-service-card[style*="background-color: rgba(0, 86, 179, 0.05)"] {
+    background-color: #1E293B !important;
+    border: 1px solid #334155 !important;
+}
+
+.patent-service-card[style*="background-color: rgba(201, 165, 92, 0.05)"] {
+    background-color: #1E293B !important;
+    border: 1px solid #334155 !important;
+}
+
+.patent-service-card[style*="background-color: rgba(33, 150, 83, 0.05)"] {
+    background-color: #1E293B !important;
+    border: 1px solid #334155 !important;
+}
+
+/* 서비스 장점 카드 스타일 */
 .benefit-item {
-    background-color: var(--light);
+    background-color: #1E293B;
     border-radius: 12px;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
     padding: var(--spacing-lg);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     transition: transform var(--transition-normal);
-}
-
-.benefit-item:hover {
-    transform: translateY(-5px);
-}
-
-.benefit-icon {
-    width: 70px;
-    height: 70px;
-    background-color: rgba(0, 86, 179, 0.1);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: var(--spacing-md);
-}
-
-.benefit-icon i {
-    font-size: 2rem;
-    color: var(--secondary);
+    border: 1px solid #334155;
 }
 
 .benefit-content h3 {
-    color: var(--primary);
+    color: #FFFFFF; /* 제목 색상 더 밝게 */
     margin-bottom: var(--spacing-sm);
 }
 
 .benefit-content p {
-    color: var(--gray);
+    color: #E2E8F0; /* 내용 색상 더 밝게 */
     line-height: 1.7;
 }
 
+/* 미디어 쿼리 유지 */
 @media (min-width: 768px) {
     .patent-services-grid {
         grid-template-columns: repeat(3, 1fr);
