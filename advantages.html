@@ -278,6 +278,7 @@
     </div>
 </section>
 
+
 <style>
 /* 장점 페이지 스타일 */
 .advantages-grid {
@@ -378,6 +379,129 @@
     background-color: #1e1e1e; /* 홀수 줄 배경 */
 }
 
+
+/* 반응형 스타일 */
+@media (min-width: 768px) {
+    .advantages-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .advantages-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+</style>
+
+<!-- 변경 후 -->
+<style>
+/* 장점 페이지 다크 테마 스타일 */
+.advantages-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.advantage-card {
+    background-color: #1e1e1e; /* 어두운 배경으로 변경 */
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* 더 진한 그림자 */
+    padding: var(--spacing-lg);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    border: 1px solid #333; /* 테두리 추가 */
+    color: #f0f0f0; /* 텍스트 색상을 밝게 */
+}
+
+.advantage-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 86, 179, 0.3); /* 푸른 계열 그림자로 강조 */
+    border-color: #0056b3; /* 호버 시 테두리 색상 변경 */
+}
+
+.advantage-icon {
+    width: 70px;
+    height: 70px;
+    background-color: rgba(0, 86, 179, 0.2); /* 약간 더 진한 아이콘 배경 */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.advantage-icon i {
+    font-size: 2rem;
+    color: #5ca8ff; /* 아이콘 색상을 더 밝게 */
+}
+
+.advantage-title {
+    color: #5ca8ff; /* 제목 색상을 밝은 파란색으로 */
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-xl);
+}
+
+.advantage-card p {
+    color: #cccccc; /* 일반 텍스트 색상을 밝은 회색으로 */
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+.advantage-details h4 {
+    color: #6bb0ff; /* 소제목 색상 */
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-lg);
+}
+
+.advantage-details ul {
+    padding-left: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.advantage-details li {
+    color: #b0b0b0; /* 목록 항목 색상 */
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.6;
+}
+
+/* 섹션 배경색 조정 */
+section.bg-light {
+    background-color: #121212; /* 섹션 배경을 더 어둡게 */
+}
+
+.comparison-table-container {
+    overflow-x: auto;
+    margin: var(--spacing-lg) 0;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1e1e1e; /* 항상 어두운 배경 */
+    color: #f0f0f0; /* 밝은 텍스트 */
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: var(--spacing-md);
+    text-align: left;
+    border: 1px solid #444; /* 테두리도 어둡게 */
+}
+
+.comparison-table th {
+    background-color: #333; /* 헤더 진한 회색 */
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.comparison-table tr:nth-child(even) {
+    background-color: #2a2a2a; /* 짝수 줄 배경 */
+}
+
+.comparison-table tr:nth-child(odd) {
+    background-color: #1e1e1e; /* 홀수 줄 배경 */
+}
 
 /* 반응형 스타일 */
 @media (min-width: 768px) {
