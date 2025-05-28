@@ -132,7 +132,8 @@
                 </div>
                 
                 <div class="table-container fade-in delay-2">
-                    <table class="pricing-table">
+                    <!-- 데스크톱용 테이블 -->
+                    <table class="pricing-table-desktop">
                         <thead>
                             <tr>
                                 <th>단계</th>
@@ -225,6 +226,111 @@
                             </tr>
                         </tbody>
                     </table>
+
+                    <!-- 모바일용 카드 -->
+                    <div class="pricing-cards-mobile">
+                        <!-- 출원 전 카드 -->
+                        <div class="pricing-card">
+                            <div class="pricing-card-header">출원 전 조사</div>
+                            <div class="pricing-card-content">
+                                <div class="pricing-card-row">
+                                    <div class="pricing-card-label">일본 상표 조사<br>(문자상표, J-PlatPat 기준)</div>
+                                    <div class="pricing-card-value">¥10,000</div>
+                                </div>
+                                <div class="pricing-card-row">
+                                    <div class="pricing-card-label">일본 도형상표 또는 심층조사</div>
+                                    <div class="pricing-card-value variable">¥40,000~</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 일본 상표 출원 카드 -->
+                        <div class="pricing-card">
+                            <div class="pricing-card-header">일본 상표 출원</div>
+                            <div class="pricing-card-content">
+                                <div class="pricing-card-row">
+                                    <div class="pricing-card-label">기본 출원<br>(지정상품 10개까지)</div>
+                                    <div class="pricing-card-value">관납료 ¥12,000<br>변리사 ¥30,000</div>
+                                </div>
+                                <div class="pricing-card-row">
+                                    <div class="pricing-card-label">추가 상품류 (1류당)</div>
+                                    <div class="pricing-card-value">관납료 ¥8,600<br>변리사 ¥10,000</div>
+                                </div>
+                                <div class="pricing-card-row">
+                                    <div class="pricing-card-label">우선권 주장</div>
+                                    <div class="pricing-card-value">¥8,000</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 거절이유 대응 카드 -->
+                        <div class="pricing-card">
+                            <div class="pricing-card-header">일본 상표 거절이유 대응</div>
+                            <div class="pricing-card-content">
+                                <div class="pricing-card-row">
+                                    <div class="pricing-card-label">단순 보정<br>(지정상품 보정 등)</div>
+                                    <div class="pricing-card-value">¥30,000</div>
+                                </div>
+                                <div class="pricing-card-row">
+                                    <div class="pricing-card-label">복잡 보정<br>(유사성 판단 등)</div>
+                                    <div class="pricing-card-value variable">¥70,000~</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 마드리드 대응 카드 -->
+                        <div class="pricing-card">
+                            <div class="pricing-card-header">마드리드 일본 대응</div>
+                            <div class="pricing-card-content">
+                                <div class="pricing-card-row">
+                                    <div class="pricing-card-label">단순 보정</div>
+                                    <div class="pricing-card-value">¥30,000</div>
+                                </div>
+                                <div class="pricing-card-row">
+                                    <div class="pricing-card-label">복잡 보정</div>
+                                    <div class="pricing-card-value variable">¥70,000~</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 등록 카드 -->
+                        <div class="pricing-card">
+                            <div class="pricing-card-header">일본 상표 등록</div>
+                            <div class="pricing-card-content">
+                                <div class="pricing-card-row">
+                                    <div class="pricing-card-label">등록료 (10년)</div>
+                                    <div class="pricing-card-value">관납료 ¥32,900/류<br>변리사 ¥20,000<br>+ ¥5,000/추가류</div>
+                                </div>
+                                <div class="pricing-card-row">
+                                    <div class="pricing-card-label">등록료 (5년 분할)</div>
+                                    <div class="pricing-card-value">관납료 ¥17,200/류<br>변리사 ¥20,000<br>+ ¥5,000/추가류</div>
+                                </div>
+                                <div class="pricing-card-row">
+                                    <div class="pricing-card-label">등록증 송부 (일반)</div>
+                                    <div class="pricing-card-value free">전자 송달 무료</div>
+                                </div>
+                                <div class="pricing-card-row">
+                                    <div class="pricing-card-label">등록증 송부 (마드리드)</div>
+                                    <div class="pricing-card-value">우편 송달 ¥8,000</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 갱신 카드 -->
+                        <div class="pricing-card">
+                            <div class="pricing-card-header">일본 상표 갱신</div>
+                            <div class="pricing-card-content">
+                                <div class="pricing-card-row">
+                                    <div class="pricing-card-label">갱신 등록 (10년)</div>
+                                    <div class="pricing-card-value">관납료 ¥43,600/류<br>변리사 ¥28,000</div>
+                                </div>
+                                <div class="pricing-card-row">
+                                    <div class="pricing-card-label">갱신 등록 (5년 분할)</div>
+                                    <div class="pricing-card-value">관납료 ¥22,800/류<br>변리사 ¥28,000</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="table-notes fade-in delay-3">
@@ -419,47 +525,117 @@
         /* 테이블 컨테이너 */
         .table-container {
             margin: 2rem 0;
-            overflow-x: auto;
+        }
+
+        /* 데스크톱 테이블 스타일 */
+        .pricing-table-desktop {
+            width: 100%;
+            border-collapse: collapse;
             background: white;
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
 
-        /* 요금표 테이블 스타일 */
-        .pricing-table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 800px;
-        }
-
-        .pricing-table th,
-        .pricing-table td {
+        .pricing-table-desktop th,
+        .pricing-table-desktop td {
             padding: 1rem;
             text-align: left;
             border-bottom: 1px solid #e9ecef;
         }
 
-        .pricing-table th {
+        .pricing-table-desktop th {
             background-color: #f8f9fa;
             font-weight: 600;
             color: #495057;
             border-bottom: 2px solid #dee2e6;
         }
 
-        .pricing-table td {
+        .pricing-table-desktop td {
             vertical-align: top;
         }
 
-        .pricing-table tr:hover {
+        .pricing-table-desktop tr:hover {
             background-color: #f8f9fa;
         }
 
-        .pricing-table td[rowspan] {
+        .pricing-table-desktop td[rowspan] {
             background-color: #f1f3f4;
             font-weight: 600;
             color: #495057;
             text-align: center;
             vertical-align: middle;
+        }
+
+        /* 모바일 카드 스타일 */
+        .pricing-cards-mobile {
+            display: none;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .pricing-card-header {
+            background-color: #0056b3;
+            color: white;
+            padding: 1rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .pricing-card-content {
+            padding: 1rem;
+        }
+
+        .pricing-card-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .pricing-card-row:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-card-label {
+            font-weight: 600;
+            color: #495057;
+            flex: 1;
+            margin-right: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .pricing-card-value {
+            color: #0056b3;
+            font-weight: 600;
+            text-align: right;
+            font-size: 0.9rem;
+        }
+
+        .pricing-card-value.free {
+            color: #28a745;
+        }
+
+        .pricing-card-value.variable {
+            color: #fd7e14;
+        }
+
+        /* 반응형 설정 */
+        @media (max-width: 767px) {
+            .pricing-table-desktop {
+                display: none;
+            }
+            
+            .pricing-cards-mobile {
+                display: block;
+            }
         }
 
         /* 테이블 주석 */
