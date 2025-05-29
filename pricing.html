@@ -53,8 +53,11 @@
     </script>
 
 <style>
+    /* 라이트 테마 색상 수정 */
+    .pricing-table-desktop,
     .pricing-table-desktop th,
     .pricing-table-desktop td,
+    .pricing-card,
     .pricing-card-label,
     .pricing-card-value,
     .table-notes,
@@ -64,7 +67,36 @@
     .pricing-item-desc,
     .pricing-component,
     .pricing-component p {
-        color: #212529 !important;
+        background-color: #2d2d2d !important;
+        color: #f1f1f1 !important;
+    }
+
+    .pricing-table-desktop {
+        border: 1px solid #4a4a4a !important;
+    }
+
+    .pricing-table-desktop th {
+        background-color: #0056b3 !important;
+        color: #ffffff !important;
+        border-bottom: 2px solid #4a4a4a !important;
+    }
+
+    .pricing-table-desktop td {
+        border-bottom: 1px solid #4a4a4a !important;
+    }
+
+    .pricing-table-desktop tr:hover {
+        background-color: #3a3a3a !important;
+    }
+
+    .pricing-table-desktop td[rowspan] {
+        background-color: #1a1a1a !important;
+        color: #0d6efd !important;
+        border-right: 2px solid #4a4a4a !important;
+    }
+
+    .pricing-card {
+        border: 1px solid #4a4a4a !important;
     }
 
     .pricing-card-header {
@@ -72,6 +104,122 @@
         color: #ffffff !important;
     }
 
+    .pricing-card-row {
+        border-bottom: 1px solid #4a4a4a !important;
+    }
+
+    .pricing-card-value {
+        color: #1a73e8 !important;
+    }
+
+    .pricing-card-value.free {
+        color: #28a745 !important;
+    }
+
+    .pricing-card-value.variable {
+        color: #fd7e14 !important;
+    }
+
+    .table-notes {
+        background-color: #1a1a1a !important;
+        border-left: 4px solid #6c757d !important;
+    }
+
+    .table-notes h4 {
+        color: #f1f1f1 !important;
+    }
+
+    .coming-soon-notice {
+        background-color: #2d2d2d !important;
+        border: 1px solid #ffeaa7 !important;
+        color: #f1f1f1 !important;
+    }
+
+    .pricing-category {
+        background-color: #2d2d2d !important;
+        border: 1px solid #4a4a4a !important;
+    }
+
+    .pricing-category-title {
+        background-color: #0056b3 !important;
+        color: #ffffff !important;
+    }
+
+    .pricing-category-title i {
+        color: #ffffff !important;
+    }
+
+    .pricing-category-content p {
+        color: #e0e0e0 !important;
+    }
+
+    .pricing-item-name {
+        color: #f1f1f1 !important;
+    }
+
+    .pricing-item-desc {
+        color: #b0b0b0 !important;
+    }
+
+    .pricing-item {
+        border-bottom: 1px solid #4a4a4a !important;
+    }
+
+    .pricing-component {
+        background-color: #2d2d2d !important;
+        border: 1px solid #4a4a4a !important;
+    }
+
+    .pricing-component h3 {
+        color: #f1f1f1 !important;
+    }
+
+    .pricing-component h3 i {
+        color: #1a73e8 !important;
+    }
+
+    .pricing-component p {
+        color: #e0e0e0 !important;
+    }
+
+    .alert {
+        background-color: #1a1a1a !important;
+        color: #f1f1f1 !important;
+        border-left: 4px solid #0056b3 !important;
+    }
+
+    .alert i {
+        color: #0056b3 !important;
+    }
+
+    .price-notice {
+        background-color: #1a1a1a !important;
+        border: 1px solid #17a2b8 !important;
+    }
+
+    .price-notice i {
+        color: #17a2b8 !important;
+    }
+
+    .price-notice p {
+        color: #e0e0e0 !important;
+    }
+
+    .pricing-note {
+        background-color: #2d2d2d !important;
+        border: 1px solid #4a4a4a !important;
+        color: #f1f1f1 !important;
+    }
+
+    .pricing-structure-intro {
+        color: #e0e0e0 !important;
+    }
+
+    .lead {
+        color: #e0e0e0 !important;
+    }
+
+    /* 다크 테마 (기본적으로 적용되는 어두운 색상들) */
     @media (prefers-color-scheme: dark) {
         .pricing-table-desktop,
         .pricing-table-desktop th,
@@ -90,27 +238,142 @@
             color: #f1f1f1 !important;
         }
 
+        .pricing-table-desktop {
+            border: 1px solid #30363d !important;
+        }
+
+        .pricing-table-desktop th {
+            background-color: #0d6efd !important;
+            color: #ffffff !important;
+            border-bottom: 2px solid #30363d !important;
+        }
+
+        .pricing-table-desktop td {
+            border-bottom: 1px solid #30363d !important;
+        }
+
+        .pricing-table-desktop tr:hover {
+            background-color: #21262d !important;
+        }
+
+        .pricing-table-desktop td[rowspan] {
+            background-color: #0d1117 !important;
+            color: #58a6ff !important;
+            border-right: 2px solid #30363d !important;
+        }
+
+        .pricing-card {
+            border: 1px solid #30363d !important;
+        }
+
         .pricing-card-header {
             background-color: #0d6efd !important;
             color: #ffffff !important;
         }
-    }
-</style>
 
-<!-- Dark mode overrides -->
-<style>
-:root {
-  --surface: #1e1e1e;
-  --surface-light: #2a2a2a;
-  --text-color: #f1f1f1;
-}
-@media (prefers-color-scheme: dark) {
-  body { background-color: var(--surface) !important; color: var(--text-color) !important; }
-  .pricing-table-desktop, .pricing-card, .table-notes, .pricing-category, .pricing-component {
-    background-color: var(--surface-light) !important;
-    color: var(--text-color) !important;
-  }
-}
+        .pricing-card-row {
+            border-bottom: 1px solid #30363d !important;
+        }
+
+        .pricing-card-value {
+            color: #58a6ff !important;
+        }
+
+        .table-notes {
+            background-color: #0d1117 !important;
+            border-left: 4px solid #8b949e !important;
+        }
+
+        .table-notes h4 {
+            color: #f0f6fc !important;
+        }
+
+        .coming-soon-notice {
+            background-color: #1e1e1e !important;
+            border: 1px solid #f1c40f !important;
+            color: #f0f6fc !important;
+        }
+
+        .pricing-category {
+            background-color: #1e1e1e !important;
+            border: 1px solid #30363d !important;
+        }
+
+        .pricing-category-title {
+            background-color: #0d6efd !important;
+            color: #ffffff !important;
+        }
+
+        .pricing-category-content p {
+            color: #c9d1d9 !important;
+        }
+
+        .pricing-item-name {
+            color: #f0f6fc !important;
+        }
+
+        .pricing-item-desc {
+            color: #8b949e !important;
+        }
+
+        .pricing-item {
+            border-bottom: 1px solid #30363d !important;
+        }
+
+        .pricing-component {
+            background-color: #1e1e1e !important;
+            border: 1px solid #30363d !important;
+        }
+
+        .pricing-component h3 {
+            color: #f0f6fc !important;
+        }
+
+        .pricing-component h3 i {
+            color: #58a6ff !important;
+        }
+
+        .pricing-component p {
+            color: #c9d1d9 !important;
+        }
+
+        .alert {
+            background-color: #0d1117 !important;
+            color: #f0f6fc !important;
+            border-left: 4px solid #0d6efd !important;
+        }
+
+        .alert i {
+            color: #0d6efd !important;
+        }
+
+        .price-notice {
+            background-color: #0d1117 !important;
+            border: 1px solid #17a2b8 !important;
+        }
+
+        .price-notice i {
+            color: #17a2b8 !important;
+        }
+
+        .price-notice p {
+            color: #c9d1d9 !important;
+        }
+
+        .pricing-note {
+            background-color: #1e1e1e !important;
+            border: 1px solid #30363d !important;
+            color: #f0f6fc !important;
+        }
+
+        .pricing-structure-intro {
+            color: #c9d1d9 !important;
+        }
+
+        .lead {
+            color: #c9d1d9 !important;
+        }
+    }
 </style>
 
 </head>
