@@ -7,470 +7,506 @@
     <meta name="description" content="韓国出願・韓国商標出願専門の韓国人弁理士。韓国特許庁指定商品検索から韓国商標出願まで日本国内から直接対応。韓国商標調査・韓国商標登録の実績多数。">
     <meta name="keywords" content="韓国出願,韓国商標出願,韓国商標,韓国特許,韓国商標登録,韓国商標調査,韓国人弁理士,韓国特許庁,韓国商標代行,韓国知的財産">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            font-family: 'Inter', 'Hiragino Sans', 'Yu Gothic', sans-serif; 
-            line-height: 1.7; 
-            color: #e2e8f0; 
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            min-height: 100vh;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        .container { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 0 24px; 
+        body {
+            font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+            line-height: 1.6;
+            color: #f1f1f1;
+            background-color: #1a1a1a;
         }
         
-        .header { 
-            background: linear-gradient(135deg, #1e40af 0%, #0f172a 100%);
-            color: white; 
-            padding: 80px 0;
-            position: relative;
-            overflow: hidden;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%23ffffff;stop-opacity:0.1"/><stop offset="100%" style="stop-color:%23ffffff;stop-opacity:0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/></svg>');
-            opacity: 0.3;
-        }
-        
-        .header-content {
-            position: relative;
-            z-index: 1;
+        .header {
+            background: linear-gradient(135deg, #2c5aa0 0%, #1e3a5f 100%);
+            color: white;
+            padding: 60px 0;
             text-align: center;
         }
         
-        .header h1 { 
-            font-size: 2.75rem; 
-            margin-bottom: 24px; 
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
             font-weight: 700;
-            letter-spacing: -0.02em;
-            color: #ffffff;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
         
-        .header .subtitle { 
-            font-size: 1.5rem; 
-            margin-bottom: 20px; 
-            font-weight: 500;
-            color: #94a3b8;
-            letter-spacing: -0.01em;
+        .header .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            opacity: 0.9;
         }
         
-        .header .description { 
-            font-size: 1.125rem; 
-            color: #cbd5e1;
-            max-width: 900px; 
-            margin: 0 auto;
-            line-height: 1.8;
-            font-weight: 400;
-        }
-        
-        .section { 
-            background: rgba(30, 41, 59, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(51, 65, 85, 0.6);
-            margin: 48px 0; 
-            border-radius: 16px; 
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-        }
-        
-        .section-inner {
-            padding: 64px 48px;
-        }
-        
-        .section h2 { 
-            font-size: 2.25rem; 
-            color: #ffffff;
-            text-align: center; 
-            margin-bottom: 48px;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            position: relative;
-        }
-        
-        .section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-            border-radius: 2px;
-        }
-        
-        .pricing-container {
+        .header .description {
+            font-size: 1.1rem;
+            opacity: 0.8;
             max-width: 800px;
             margin: 0 auto;
         }
         
-        .pricing-plan { 
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.9) 100%);
-            border-radius: 20px; 
-            overflow: hidden; 
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(71, 85, 105, 0.3);
-            backdrop-filter: blur(10px);
+        .section {
+            padding: 60px 0;
+            background: #2a2a2a;
+            margin: 40px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
         
-        .plan-header { 
-            padding: 40px;
-            text-align: center; 
-            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
-            position: relative;
+        .section h2 {
+            font-size: 2rem;
+            color: #2c5aa0;
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 3px solid #2c5aa0;
+            display: inline-block;
+            padding-bottom: 10px;
+            width: 100%;
         }
         
-        .plan-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+        .section h3 {
+            font-size: 1.5rem;
+            color: #2c5aa0;
+            margin: 30px 0 15px 0;
+            border-left: 4px solid #2c5aa0;
+            padding-left: 15px;
         }
         
-        .plan-icon { 
-            font-size: 3rem; 
-            margin-bottom: 16px;
-            position: relative;
-            z-index: 1;
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
         }
         
-        .plan-header h3 { 
-            margin: 0; 
-            font-size: 1.5rem; 
-            font-weight: 600;
-            position: relative;
-            z-index: 1;
+        .advantage-card {
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid #2c5aa0;
+        }
+        
+        .advantage-card h4 {
+            color: #f1f1f1;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .advantage-card p {
+            color: #e0e0e0;
+        }
+        
+        .pricing-plans {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin: 40px 0;
+        }
+
+        .pricing-plan {
+            background: #2a2a2a;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .plan-header {
+            padding: 30px;
+            text-align: center;
             color: white;
         }
-        
-        .plan-content { 
-            background: rgba(15, 23, 42, 0.8);
+
+        .simple-plan {
+            background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
         }
-        
-        .plan-step { 
-            padding: 32px 40px; 
-            border-bottom: 1px solid rgba(51, 65, 85, 0.4);
+
+        .double-plan {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .plan-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .plan-header h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            line-height: 1.4;
+        }
+
+        .plan-content {
+            padding: 0;
+            background: #2a2a2a;
+        }
+
+        .plan-step {
+            padding: 25px 30px;
+            border-bottom: 1px solid #333;
             text-align: center;
-            position: relative;
         }
-        
-        .plan-step:last-child { 
-            border-bottom: none; 
+
+        .plan-step:last-child {
+            border-bottom: none;
         }
-        
-        .step-title { 
-            font-size: 1.125rem; 
-            font-weight: 600; 
-            color: #f1f5f9;
-            margin-bottom: 12px;
-            letter-spacing: -0.01em;
-        }
-        
-        .step-price { 
-            font-size: 3rem; 
-            font-weight: 700; 
-            color: #3b82f6;
-            margin-bottom: 12px;
-            letter-spacing: -0.02em;
-        }
-        
-        .step-note { 
-            font-size: 0.925rem; 
-            color: #94a3b8;
-            line-height: 1.6;
-        }
-        
-        .plan-plus { 
-            text-align: center; 
-            padding: 20px; 
-            font-size: 2rem; 
-            color: #3b82f6;
-            background: rgba(15, 23, 42, 0.6);
-            font-weight: 300;
-        }
-        
-        .options-section { 
-            margin-top: 48px; 
-            padding: 48px;
-            background: rgba(15, 23, 42, 0.6);
-            border-radius: 16px;
-            border: 1px solid rgba(51, 65, 85, 0.3);
-        }
-        
-        .options-section h3 { 
-            font-size: 1.875rem; 
-            color: #f1f5f9;
-            text-align: center; 
-            margin-bottom: 32px;
+
+        .step-title {
+            font-size: 1.1rem;
             font-weight: 600;
-            letter-spacing: -0.01em;
+            color: #f1f1f1;
+            margin-bottom: 10px;
         }
-        
-        .option-card { 
-            background: rgba(30, 41, 59, 0.8);
-            backdrop-filter: blur(5px);
-            padding: 32px; 
-            border-radius: 12px; 
+
+        .step-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #4ecdc4;
+            margin-bottom: 10px;
+        }
+
+        .step-price.free {
+            color: #44a08d;
+        }
+
+        .tax-note {
+            font-size: 0.8rem;
+            color: #999;
+            margin-left: 5px;
+        }
+
+        .step-note {
+            font-size: 0.9rem;
+            color: #ccc;
+            line-height: 1.4;
+        }
+
+        .plan-plus {
             text-align: center;
-            border: 1px solid rgba(71, 85, 105, 0.3);
-            transition: all 0.3s ease;
+            padding: 15px;
+            font-size: 2rem;
+            color: #4ecdc4;
+            background: #1a1a1a;
         }
-        
-        .option-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+
+        .options-section {
+            margin-top: 60px;
+            padding: 40px 0;
+            background: #1a1a1a;
+            border-radius: 15px;
         }
-        
-        .option-title { 
-            font-size: 1.125rem; 
-            font-weight: 600; 
-            color: #f1f5f9;
-            margin-bottom: 16px;
-            letter-spacing: -0.01em;
-        }
-        
-        .option-price { 
-            font-size: 1.875rem; 
-            font-weight: 700; 
-            color: #3b82f6;
-        }
-        
-        .advantage-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 24px;
-        }
-        
-        .advantage-card { 
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(5px);
-            padding: 32px; 
-            border-radius: 12px;
-            border: 1px solid rgba(71, 85, 105, 0.3);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .advantage-card::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-            border-radius: 0 2px 2px 0;
-        }
-        
-        .advantage-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
-        
-        .advantage-card h4 { 
-            color: #f1f5f9;
-            font-size: 1.25rem; 
-            margin-bottom: 16px;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-        }
-        
-        .advantage-card p { 
-            color: #cbd5e1;
-            line-height: 1.7;
-        }
-        
-        .contact-section { 
-            background: linear-gradient(135deg, #1e40af 0%, #0f172a 100%);
-            color: white; 
-            margin: 48px 0 0 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .contact-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="b" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%23ffffff;stop-opacity:0.05"/><stop offset="100%" style="stop-color:%23ffffff;stop-opacity:0"/></radialGradient></defs><circle cx="100" cy="800" r="200" fill="url(%23b)"/><circle cx="900" cy="200" r="180" fill="url(%23b)"/></svg>');
-        }
-        
-        .contact-content {
-            position: relative;
-            z-index: 1;
+
+        .options-section h3 {
+            font-size: 1.8rem;
+            color: #f1f1f1;
             text-align: center;
-            padding: 64px 0;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #333;
         }
-        
-        .contact-section h2 {
-            font-size: 2.25rem;
-            margin-bottom: 16px;
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .option-card {
+            background: #333;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .option-title {
+            font-size: 1.1rem;
             font-weight: 600;
-            letter-spacing: -0.02em;
+            color: #f1f1f1;
+            margin-bottom: 15px;
+        }
+
+        .option-price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #4ecdc4;
+            margin-bottom: 10px;
+        }
+
+        .option-note {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        @media (min-width: 768px) {
+            .pricing-plans {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .options-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
         }
         
-        .contact-section > .container > p {
-            font-size: 1.125rem;
-            margin-bottom: 40px;
-            color: #cbd5e1;
+        .contact-section {
+            background: linear-gradient(135deg, #2c5aa0 0%, #1e3a5f 100%);
+            color: white;
+            text-align: center;
+            margin: 40px 0 0 0;
         }
         
-        .contact-info { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 24px;
-            max-width: 800px;
-            margin: 0 auto;
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
         }
         
-        .contact-item { 
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 32px; 
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 10px;
         }
         
-        .contact-item:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-2px);
+        .contact-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #fff;
         }
         
-        .contact-item h4 { 
-            font-size: 1.25rem; 
-            margin-bottom: 12px;
-            font-weight: 600;
+        .contact-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
         
-        .contact-item p { 
-            font-size: 1.125rem;
-            color: #e2e8f0;
+        .highlight {
+            background: linear-gradient(120deg, #2c5aa0 0%, #1e3a5f 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #f39c12;
+            margin: 20px 0;
+            font-weight: 500;
+            color: #ffffff;
         }
         
-        .contact-item a {
-            color: #93c5fd;
-            text-decoration: none;
-            transition: color 0.3s ease;
+        .highlight strong {
+            color: #ffffff;
         }
         
-        .contact-item a:hover {
-            color: #dbeafe;
+        .note {
+            background: #e8f4f8;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #17a2b8;
+            margin: 20px 0;
         }
         
-        .footer-note {
-            margin-top: 48px;
-            padding-top: 32px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #94a3b8;
-            font-size: 0.925rem;
-        }
-        
-        @media (max-width: 768px) { 
-            .header h1 { font-size: 2rem; }
-            .header .subtitle { font-size: 1.25rem; }
-            .section h2 { font-size: 1.75rem; }
-            .section-inner { padding: 40px 24px; }
-            .plan-step, .plan-header { padding: 24px; }
-            .advantage-card, .contact-item { padding: 24px; }
-            .contact-content { padding: 48px 0; }
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .price-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .price-amount {
+                text-align: left;
+                min-width: auto;
+            }
         }
     </style>
 </head>
 <body>
     <div class="header">
         <div class="container">
-            <div class="header-content">
-                <h1>韓国商標出願は、制度と言語に精通した専門家へ。</h1>
-                <div class="subtitle">韓国ソウル大学出身の韓国人日本弁理士が、日本からの韓国出願を一貫してサポート</div>
-                <div class="description">韓国商標法の制度・実務・審査基準に最も精通した弁理士を通じて、確実な韓国商標登録の成功へ。<br>KIPRISによる先行調査から指定商品選定、出願・登録まで日本語で一貫対応。</div>
+            <h1>韓国出願・韓国商標出願プレミアムサービス</h1>
+
+            <div class="subtitle">KJ特許事務所 代表弁理士 李斗煥（識別番号：100236697）</div>
+            <div class="subtitle">leedh@kjpat.net</div>
+
+            <div class="subtitle">韓国人弁理士による信頼できる韓国出願・韓国商標出願</div>
+            <div class="description">
+                韓国ソウル大学出身の韓国人弁理士が、韓国商標調査・韓国商標出願から韓国商標登録まで日本国内段階から直接対応。韓国特許庁指定商品検索と拒絶理由回避を確実にサポートします。
             </div>
         </div>
     </div>
 
     <div class="container">
         <div class="section">
-            <div class="section-inner">
-                <h2>韓国出願・韓国商標出願料金体系</h2>
-                <div class="pricing-container">
-                    <div class="pricing-plan">
-                        <div class="plan-header">
-                            <div class="plan-icon">🇰🇷</div>
-                            <h3>韓国商標出願プラン</h3>
-                        </div>
-                        <div class="plan-content">
-                            <div class="plan-step">
-                                <div class="step-title">商標調査</div>
-                                <div class="step-price">無料</div>
-                                <div class="step-note">※出願に進まない場合は ¥10,000</div>
-                            </div>
-                            <div class="plan-plus">+</div>
-                            <div class="plan-step">
-                                <div class="step-title">韓国商標の<br>出願費用</div>
-                                <div class="step-price">¥80,000</div>
-                                <div class="step-note">※日本・韓国側の代理人費用含む<br>※韓国特許庁の官費込み<br>※1区分・20個まで</div>
-                            </div>
-                            <div class="plan-plus">+</div>
-                            <div class="plan-step">
-                                <div class="step-title">韓国商標の<br>登録費用</div>
-                                <div class="step-price">¥80,000</div>
-                                <div class="step-note">※日本・韓国側の代理人費用含む<br>※韓国特許庁の官費込み<br>※1区分・20個まで</div>
-                            </div>
-                            <div class="plan-step">
-                                <div class="step-note">登録が拒絶された場合、50%費用で1回追加出願機会を提供します。</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="options-section">
-                        <h3>オプション（拒絶理由発生時）</h3>
-                        <div class="option-card">
-                            <div class="option-title">韓国特許庁中間対応（意見書・補正書）</div>
-                            <div class="option-price">¥20,000〜¥120,000</div>
-                        </div>
-                    </div>
+            <h2>韓国人弁理士だからこそ可能なサービス</h2>
+            
+            <div class="highlight">
+                <strong>✓ 韓国特許庁指定商品の正確な検索・韓国出願の確実な対応</strong><br>
+                従来の日本語→英語→韓国語の多段階翻訳方式では、コスト上昇と日本顧客の要求が正確に反映されない問題がありました。韓国語・日本語が共に母国語レベルの韓国人日本弁理士により、ダイレクトに韓国特許庁指定商品検索と韓国出願調査を実施。コスト・時間短縮と共に登録率向上を実現します。
+            </div>
+            
+            <div class="advantage-grid">
+                <div class="advantage-card">
+                    <h4>🔍 韓国商標調査・韓国商標出願の信頼性</h4>
+                    <p>従来の方式では日本語→英語→韓国語の多段階翻訳により、コスト上昇と顧客要求の不正確な反映が問題でした。韓国語・日本語が共に母国語レベルの韓国人日本弁理士により、ダイレクトに韓国指定商品検索・調査を実施。コスト・時間短縮と共に登録率向上を実現します。</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <h4>📋 韓国出願・指定商品選定の正確性</h4>
+                    <p>韓国特許庁公示の指定商品・役務分類を正確に理解し、韓国商標出願の審査段階での拒絶理由を事前に回避する最適な指定商品選定を行います。</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <h4>🚫 韓国商標出願での拒絶理由の事前回避</h4>
+                    <p>韓国商標審査基準と韓国出願審査実務を熟知し、絶対的拒絶理由・相対的拒絶理由の両方を考慮した戦略的韓国商標出願を実現します。</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <h4>⚡ 韓国出願手続きの迅速な対応</h4>
+                    <p>韓国語・日本語が共に母国語レベルのため、翻訳過程での時間ロスと意味の歪曲を完全に排除。韓国特許庁との韓国出願手続きや中間処理を迅速かつ正確に進行し、韓国商標出願の大幅な時間短縮とコスト削減を実現します。</p>
                 </div>
             </div>
         </div>
 
         <div class="section">
-            <div class="section-inner">
-                <h2>弁理士紹介</h2>
-                <div class="advantage-grid">
-                    <div class="advantage-card">
-                        <h4>学術的経歴</h4>
-                        <p>・韓国ソウル大学出身<br>・20年以上の研究経歴<br>・豊富な産業界経験</p>
+            <h2>韓国出願・韓国商標出願サービス内容</h2>
+            
+            <h3>韓国商標先行調査・韓国出願前調査</h3>
+            <p>韓国特許庁(KIPRIS)データベースを活用した徹底的な韓国商標先行調査を実施。韓国出願前に同一・類似商標の存在確認と韓国商標登録可能性を詳細に分析し、日本語での調査報告書を提供します。</p>
+            
+            <h3>韓国商標出願・韓国出願手続き</h3>
+            <p>韓国特許庁への直接韓国商標出願及びマドリッド国際出願による韓国指定国出願の両方に対応。お客様のブランド戦略に最適な韓国出願方式を提案し、韓国商標権の権利範囲を最大化します。</p>
+            
+            <h3>韓国出願・指定商品・役務の選定</h3>
+            <p>韓国特許庁公示の最新指定商品・役務分類に基づき、韓国商標出願で事業内容に最適で拒絶理由の生じない商品・役務の組み合わせを選定します。</p>
+            
+            <h3>韓国商標出願中間処理対応</h3>
+            <p>韓国特許庁審査官からの拒絶理由通知に対する意見書・補正書作成及び審査官面談を通じて、韓国商標登録率を最大限向上させます。</p>
+        </div>
+
+        <div class="section">
+            <h2>韓国出願・韓国商標出願料金体系</h2>
+            
+            <div class="pricing-plans">
+                <!-- シンプルプラン -->
+                <div class="pricing-plan">
+                    <div class="plan-header simple-plan">
+                        <div class="plan-icon">🇰🇷</div>
+                        <h3>韓国商標出願のみの<br>シンプルプラン</h3>
                     </div>
-                    <div class="advantage-card">
-                        <h4>韓国弁理士ネットワーク</h4>
-                        <p>・韓国弁理士との豊富なネットワーク活用<br>・韓国現地専門家との連携<br>・迅速な現地対応</p>
+                    <div class="plan-content">
+                        <div class="plan-step">
+                            <div class="step-title">商標調査</div>
+                            <div class="step-price">¥30,000</div>
+                            <div class="step-note">※登録可能性が低い場合、追加費用なしで1回まで追加調査可能です。</div>
+                        </div>
+                        <div class="plan-plus">+</div>
+                        <div class="plan-step">
+                            <div class="step-title">韓国商標の<br>出願費用</div>
+                            <div class="step-price">¥70,000</div>
+                            <div class="step-note">※日本・韓国側の代理人費用が含まれています。<br>※韓国の官納込みです。<br>※1区分・20個までの指定商品・役務です。</div>
+                        </div>
+                        <div class="plan-plus">+</div>
+                        <div class="plan-step">
+                            <div class="step-title">韓国商標の<br>登録費用</div>
+                            <div class="step-price">¥90,000</div>
+                            <div class="step-note">※日本・韓国側の代理人費用が含まれています。<br>※韓国の官納込みです。<br>※1区分・20個までの指定商品・役務です。</div>
+                        </div>
                     </div>
-                    <div class="advantage-card">
-                        <h4>専門分野</h4>
-                        <p>・韓国商標／特許／デザイン出願</p>
+                </div>
+
+                <!-- ダブルプラン -->
+                <div class="pricing-plan">
+                    <div class="plan-header double-plan">
+                        <div class="plan-icon">🇯🇵🇰🇷</div>
+                        <h3>日本・韓国の<br>2か国商標出願の<br>ダブルプラン</h3>
                     </div>
-                    <div class="advantage-card">
-                        <h4>言語能力</h4>
-                        <p>・韓国語ネイティブ<br>・技術・法律用語対応</p>
+                    <div class="plan-content">
+                        <div class="plan-step">
+                            <div class="step-title">日本商標の<br>出願費用（1区分）</div>
+                            <div class="step-price">¥62,000<span class="tax-note">特許庁費用込み</span></div>
+                            <div class="step-note">※韓国商標出願の同時申込プランです。</div>
+                        </div>
+                        <div class="plan-plus">+</div>
+                        <div class="plan-step">
+                            <div class="step-title">日本商標の<br>登録費用（1区分）</div>
+                            <div class="step-price">¥70,000<span class="tax-note">特許庁費用込み</span></div>
+                            <div class="step-note">※韓国商標出願の同時申込プランです。</div>
+                        </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- オプション -->
+            <div class="options-section">
+                <h3>オプション</h3>
+                <div class="options-grid">
+                    <div class="option-card">
+                        <div class="option-title">韓国特許庁中間対応（意見書・補正書）</div>
+                        <div class="option-price">¥30,000〜¥120,000</div>
+                    </div>
+                    <div class="option-card">
+                        <div class="option-title">日本特許庁中間対応（意見書・補正書）</div>
+                        <div class="option-price">¥30,000〜¥120,000</div>
+                    </div>
+                    <div class="option-card">
+                        <div class="option-title">商標権更新手続き</div>
+                        <div class="option-price">別途相談</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="note">
+                <strong>注意事項：</strong><br>
+                ・上記料金は弁理士手数料のみです。韓国特許庁納付手数料は別途必要です。<br>
+                ・韓国特許庁手数料：<br>
+                　- 電子出願（特許庁告示品目のみ）: 46,000ウォン/区分<br>
+                　- 電子出願（一般）: 52,000ウォン/区分<br>
+                　- 書面出願（特許庁告示品目のみ）: 56,000ウォン/区分<br>
+                　- 書面出願（一般）: 62,000ウォン/区分<br>
+                ・登録料：201,000ウォン/区分（10年分一括）または122,000ウォン/区分（5年分割）<br>
+                ・為替レートにより韓国特許庁手数料は変動します。
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>弁理士紹介</h2>
+            <p><strong>KJ特許事務所 代表弁理士 李斗煥（識別番号：100236697）</strong></p>
+            <div class="advantage-grid">
+                <div class="advantage-card">
+                    <h4>学術的経歴</h4>
+                    <p>・韓国ソウル大学出身<br>
+                    ・20年以上の研究経歴<br>
+                    ・豊富な産業界経験</p>
+                </div>
+                <div class="advantage-card">
+                    <h4>韓国弁理士ネットワーク</h4>
+                    <p>・韓国弁理士との豊富な<br>ネットワーク関係を活用<br>
+                    ・韓国現地専門家との連携<br>
+                    ・迅速な現地対応</p>
+                </div>
+                <div class="advantage-card">
+                    <h4>専門分野</h4>
+                    <p>・韓国商標出願・韓国出願<br>
+                    ・韓国特許出願・韓国出願<br>
+                    ・韓国意匠出願・韓国出願</p>
+                </div>
+                <div class="advantage-card">
+                    <h4>言語能力</h4>
+                    <p>・韓国語ネイティブ<br>
+                    ・日本語完全精通<br>
+                    ・技術・法律用語対応</p>
                 </div>
             </div>
         </div>
@@ -478,22 +514,26 @@
 
     <div class="contact-section">
         <div class="container">
-            <div class="contact-content">
-                <h2>韓国出願・韓国商標出願のお問い合わせ</h2>
-                <p>韓国商標出願に関するご相談は、お気軽にお問い合わせください。</p>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <h4>📧 メール</h4>
-                        <p><a href="mailto:leedh@kjpat.net">leedh@kjpat.net</a></p>
-                    </div>
-                    <div class="contact-item">
-                        <h4>🗣️ 対応言語</h4>
-                        <p>日本語・韓国語<br>完全対応</p>
-                    </div>
+            <h2>韓国出願・韓国商標出願のお問い合わせ</h2>
+            <p>韓国商標出願・韓国出願に関するご相談は、お気軽にお問い合わせください。韓国出願の初回相談は無料です。</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h4>📧 メール</h4>
+                    <p>leedh@kjpat.net</p>
                 </div>
-                <div class="footer-note">
-                    <p>&copy; 2025 KJ特許事務所. All rights reserved.</p>
+                <div class="contact-item">
+                    <h4>🗣️ 対応言語</h4>
+                    <p>日本語・韓国語<br>完全対応</p>
                 </div>
+                <div class="contact-item">
+                    <h4>⚡ 特徴</h4>
+                    <p>迅速対応<br>プレミアムサービス</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.3);">
+                <p>&copy; KJ特許事務所. All rights reserved.</p>
             </div>
         </div>
     </div>
